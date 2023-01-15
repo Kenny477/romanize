@@ -1,0 +1,12 @@
+{
+  "name": "korean",
+  "version": "0.0.0",
+  "description": "Romanize Korean hangul",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc index.ts --outDir dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kenneth Tang",
+  "license": "MIT"
+}
