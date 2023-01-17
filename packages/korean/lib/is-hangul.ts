@@ -1,12 +1,7 @@
 import { HANGUL_BLOCKS } from "../constants/unicode";
-import { IntervalTree, IntervalTreeNode } from "./interval-tree";
+import { IntervalTree } from "./interval-tree";
 
-const lyrics = `훌쩍 커버렸어
-함께한 기억처럼
-널 보는 내 마음은
-어느새 여름 지나 가을`;
-
-class Hangul extends IntervalTree {
+export class HangulTree extends IntervalTree {
   constructor() {
     super();
     Object.entries(HANGUL_BLOCKS).forEach(([block, { start, end }]) => {
@@ -29,6 +24,4 @@ class Hangul extends IntervalTree {
   }
 }
 
-const hangul = new Hangul();
-console.log(hangul.isHangulChar(lyrics[0]));
-console.log(hangul.isHangul(lyrics));
+export default HangulTree;
