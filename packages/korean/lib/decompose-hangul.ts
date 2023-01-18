@@ -1,4 +1,5 @@
 import { REVISED_ROMANIZATION_OF_KOREAN } from "../constants/system";
+import { HangulJamo } from "../types/hangul";
 
 export class HangulSyllable {
   static SBase = 0xAC00;
@@ -12,10 +13,12 @@ export class HangulSyllable {
   static SCount = HangulSyllable.LCount * HangulSyllable.NCount; // 11,172
 
   syllable: string;
-  constructor(syllable: string) {
+  next: HangulSyllable | undefined;
+  constructor(syllable: string, next?: HangulSyllable) {
     if(syllable.length !== 1 || syllable.charCodeAt(0) < 0xAC00 || syllable.charCodeAt(0) > 0xD7A3)
       throw new Error(`Invalid Hangul Syllable "${syllable}"`);
     this.syllable = syllable;
+    this.next = next;
   }
 
   // https://en.wikipedia.org/wiki/Korean_language_and_computers#Hangul_in_Unicode
@@ -28,17 +31,25 @@ export class HangulSyllable {
     const LIndex = Math.floor(SIndex / HangulSyllable.NCount);
     const VIndex = Math.floor((SIndex % HangulSyllable.NCount) / HangulSyllable.TCount);
     const TIndex = SIndex % HangulSyllable.TCount;
-    const LPart = String.fromCharCode(HangulSyllable.LBase + LIndex);
-    const VPart = String.fromCharCode(HangulSyllable.VBase + VIndex);
-    const TPart = TIndex === 0 ? '' : String.fromCharCode(HangulSyllable.TBase + TIndex);
+    const LPart = String.fromCharCode(HangulSyllable.LBase + LIndex) as keyof HangulJamo;
+    const VPart = String.fromCharCode(HangulSyllable.VBase + VIndex) as keyof HangulJamo;
+    const TPart = TIndex === 0 ? '' : String.fromCharCode(HangulSyllable.TBase + TIndex) as keyof HangulJamo;
     return [LPart, VPart, TPart];
+  }
+
+  // https://en.wikipedia.org/wiki/Revised_Romanization_of_Korean#Special_provisions
+  special(final: keyof HangulJamo, nextInitial: keyof HangulJamo) {
+    if(final === 'ᆫ' && nextInitial === 'ᆯ') return 'n';
+    if(final === 'ᆯ' && nextInitial === 'ᆫ') return 'l';
+    if(final === 'ᆯ' && nextInitial === 'ᆯ') return 'll';
+    return REVISED_ROMANIZATION_OF_KOREAN[final];
   }
  
   romanize() {
     const [initial, medial, final] = this.map();
     const romanization = REVISED_ROMANIZATION_OF_KOREAN[initial] 
       + REVISED_ROMANIZATION_OF_KOREAN[medial]
-      + REVISED_ROMANIZATION_OF_KOREAN[final];
+      + (this.next ? this.special(final, this.next.map()[0]) : REVISED_ROMANIZATION_OF_KOREAN[final]);
     return romanization;
   }
 }

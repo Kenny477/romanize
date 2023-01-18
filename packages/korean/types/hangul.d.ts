@@ -77,4 +77,4 @@ export interface HangulFinals {
   'ᇂ': string;
 }
 
-export type HangulJamo = HangulInitials & HangulMedials & HangulFinals & { [character: string]: string };
+export type HangulJamo = HangulInitials & HangulMedials & HangulFinals;
