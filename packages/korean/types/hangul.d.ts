@@ -1,80 +1,87 @@
 // See https://en.wikipedia.org/wiki/Korean_language_and_computers#Hangul_syllables_block
 // for list of all Unicode characters for initials, medials, and finals in Hangul
 export interface HangulInitials {
-  'ᄀ': string;
-  'ᄁ': string;
-  'ᄂ': string;
-  'ᄃ': string;
-  'ᄄ': string;
-  'ᄅ': string;
-  'ᄆ': string;
-  'ᄇ': string;
-  'ᄈ': string;
-  'ᄉ': string;
-  'ᄊ': string;
-  'ᄋ': string;
-  'ᄌ': string;
-  'ᄍ': string;
-  'ᄎ': string;
-  'ᄏ': string;
-  'ᄐ': string;
-  'ᄑ': string;
-  'ᄒ': string;
+  'ᄀ': HangulChar;
+  'ᄁ': HangulChar;
+  'ᄂ': HangulChar;
+  'ᄃ': HangulChar;
+  'ᄄ': HangulChar;
+  'ᄅ': HangulChar;
+  'ᄆ': HangulChar;
+  'ᄇ': HangulChar;
+  'ᄈ': HangulChar;
+  'ᄉ': HangulChar;
+  'ᄊ': HangulChar;
+  'ᄋ': HangulChar;
+  'ᄌ': HangulChar;
+  'ᄍ': HangulChar;
+  'ᄎ': HangulChar;
+  'ᄏ': HangulChar;
+  'ᄐ': HangulChar;
+  'ᄑ': HangulChar;
+  'ᄒ': HangulChar;
 }
 
 export interface HangulMedials {
-  'ᅡ': string;
-  'ᅢ': string;
-  'ᅣ': string;
-  'ᅤ': string;
-  'ᅥ': string;
-  'ᅦ': string;
-  'ᅧ': string;
-  'ᅨ': string;
-  'ᅩ': string;
-  'ᅪ': string;
-  'ᅫ': string;
-  'ᅬ': string;
-  'ᅭ': string;
-  'ᅮ': string;
-  'ᅯ': string;
-  'ᅰ': string;
-  'ᅱ': string;
-  'ᅲ': string;
-  'ᅳ': string;
-  'ᅴ': string;
-  'ᅵ': string;
+  'ᅡ': HangulChar;
+  'ᅢ': HangulChar;
+  'ᅣ': HangulChar;
+  'ᅤ': HangulChar;
+  'ᅥ': HangulChar;
+  'ᅦ': HangulChar;
+  'ᅧ': HangulChar;
+  'ᅨ': HangulChar;
+  'ᅩ': HangulChar;
+  'ᅪ': HangulChar;
+  'ᅫ': HangulChar;
+  'ᅬ': HangulChar;
+  'ᅭ': HangulChar;
+  'ᅮ': HangulChar;
+  'ᅯ': HangulChar;
+  'ᅰ': HangulChar;
+  'ᅱ': HangulChar;
+  'ᅲ': HangulChar;
+  'ᅳ': HangulChar;
+  'ᅴ': HangulChar;
+  'ᅵ': HangulChar;
 }
 
 export interface HangulFinals {
-  '': string;
-  'ᆨ': string;
-  'ᆩ': string;
-  'ᆪ': string;
-  'ᆫ': string;
-  'ᆬ': string;
-  'ᆭ': string;
-  'ᆮ': string;
-  'ᆯ': string;
-  'ᆰ': string;
-  'ᆱ': string;
-  'ᆲ': string;
-  'ᆳ': string;
-  'ᆴ': string;
-  'ᆵ': string;
-  'ᆶ': string;
-  'ᆷ': string;
-  'ᆸ': string;
-  'ᆹ': string;
-  'ᆺ': string;
-  'ᆻ': string;
-  'ᆼ': string;
-  'ᆽ': string;
-  'ᆾ': string;
-  'ᆿ': string;
-  'ᇀ': string;
-  'ᇁ': string;
-  'ᇂ': string;
+  '': HangulChar;
+  'ᆨ': HangulChar;
+  'ᆩ': HangulChar;
+  'ᆪ': HangulChar;
+  'ᆫ': HangulChar;
+  'ᆬ': HangulChar;
+  'ᆭ': HangulChar;
+  'ᆮ': HangulChar;
+  'ᆯ': HangulChar;
+  'ᆰ': HangulChar;
+  'ᆱ': HangulChar;
+  'ᆲ': HangulChar;
+  'ᆳ': HangulChar;
+  'ᆴ': HangulChar;
+  'ᆵ': HangulChar;
+  'ᆶ': HangulChar;
+  'ᆷ': HangulChar;
+  'ᆸ': HangulChar;
+  'ᆹ': HangulChar;
+  'ᆺ': HangulChar;
+  'ᆻ': HangulChar;
+  'ᆼ': HangulChar;
+  'ᆽ': HangulChar;
+  'ᆾ': HangulChar;
+  'ᆿ': HangulChar;
+  'ᇀ': HangulChar;
+  'ᇁ': HangulChar;
+  'ᇂ': HangulChar;
+}
+
+interface HangulChar {
+  base: string;
+  next?: Partial<Record<keyof HangulInitials, string>>;
 }
 
 export type HangulJamo = HangulInitials & HangulMedials & HangulFinals;
+
+export type Hangul = keyof HangulJamo;

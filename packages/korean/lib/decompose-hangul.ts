@@ -47,8 +47,8 @@ export class HangulSyllable {
  
   romanize() {
     const [initial, medial, final] = this.map();
-    const romanization = REVISED_ROMANIZATION_OF_KOREAN[initial] 
-      + REVISED_ROMANIZATION_OF_KOREAN[medial]
+    const romanization = REVISED_ROMANIZATION_OF_KOREAN[initial].base 
+      + REVISED_ROMANIZATION_OF_KOREAN[medial].base
       + (this.next ? this.special(final, this.next.map()[0]) : REVISED_ROMANIZATION_OF_KOREAN[final]);
     return romanization;
   }
