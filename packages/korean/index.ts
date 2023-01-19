@@ -1,11 +1,11 @@
 import { REVISED_ROMANIZATION_OF_KOREAN } from "./constants/systems/revised";
 import { HangulSyllable } from "./lib/decompose-hangul";
 import HangulTree from "./lib/is-hangul";
-import { HangulJamo } from "./types/hangul";
+import { HangulInitials, HangulJamo } from "./types/hangul";
 
 const tree = new HangulTree();
 
-export function separate(hangul: string): string[] {
+function separate(hangul: string): string[] {
   if (!tree.isHangul(hangul)) {
     throw new Error("Not a Hangul string");
   }
@@ -18,10 +18,10 @@ export function separate(hangul: string): string[] {
         case "HANGUL_SYLLABLES":
           const syllable = new HangulSyllable(char);
           const { initial, medial, final } = syllable;
-          if (final != "") {
-            return list.concat([initial, medial]);
+          if (final !== "") {
+            return list.concat([initial, medial, final]);
           }
-          return list.concat([initial, medial, final]);
+          return list.concat([initial, medial]);
         case null:
         default:
           return list.concat([char]);
@@ -30,28 +30,42 @@ export function separate(hangul: string): string[] {
   return chars;
 }
 
-function romanize(chars: string[], system: HangulJamo) {
-  const result = chars.map((char, i, list) => {
-    // romanizable character
-    if (char in system) {
-      const c = char as keyof HangulJamo;
-      // if next character is romanizable, check if special provision exists
-      if (i + 1 < list.length && list[i + 1] in system && list[i + 1] in system[char as keyof HangulJamo].next) {
-        const next = list[i + 1] as keyof HangulJamo;
-        const c = char as keyof HangulJamo;
-        const special = system[char as keyof HangulJamo][next];
-        if (special) {
-          return special;
+function convert(chars: string[], system: HangulJamo) {
+  let res = '';
+  for (let i = 0; i < chars.length; i++) {
+    if (chars[i] in system) {
+      const c = chars[i] as keyof HangulJamo;
+      if (system[c].next && i + 1 < chars.length && chars[i + 1] in system) {
+        const nextC = chars[i + 1] as keyof HangulJamo;
+        // @ts-expect-error
+        if (nextC in system[c].next) {
+          const nextInitial = nextC as keyof HangulInitials;
+          // @ts-expect-error
+          res += system[c].next[nextInitial];
+          i++;
+          continue;
         }
       }
+      res += system[c].base;
+      continue;
     }
-
-    // return char.base;
-  });
-  return result.join('');
+    res += chars[i];
+  }
+  return res;
 }
 
-const res = separate("안녕하세요");
-console.log(res);
-const romanized = romanize(res, REVISED_ROMANIZATION_OF_KOREAN);
-console.log(romanized)
+enum RomanizationSystem {
+  REVISED = "REVISED",
+  MCCUNE = "MCCUNE",
+}
+
+export function romanize(hangul: string, system: RomanizationSystem = RomanizationSystem.REVISED): string {
+  const chars = separate(hangul);
+  switch (system) {
+    default:
+    case RomanizationSystem.REVISED:
+      return convert(chars, REVISED_ROMANIZATION_OF_KOREAN);
+    case RomanizationSystem.MCCUNE:
+      return convert(chars, REVISED_ROMANIZATION_OF_KOREAN);
+  }
+}
