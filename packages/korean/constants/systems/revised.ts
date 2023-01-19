@@ -1,266 +1,338 @@
 import { HangulJamo } from "../../types/hangul"
 
+// https://www.korean.go.kr/front_eng/roman/roman_01.do
 // https://en.wikipedia.org/wiki/Revised_Romanization_of_Korean
 export const REVISED_ROMANIZATION_OF_KOREAN: HangulJamo = {
-  // https://en.wikipedia.org/wiki/Revised_Romanization_of_Korean#Consonant_letters
-  'ᄀ': {
+	// https://en.wikipedia.org/wiki/Revised_Romanization_of_Korean#Consonant_letters
+	'ᄀ': {
 		base: 'g',
 	},
-  'ᄁ': {
+	'ᄁ': {
 		base: 'kk',
 	},
-  'ᄂ': {
+	'ᄂ': {
 		base: 'n',
 	},
-  'ᄃ': {
+	'ᄃ': {
 		base: 'd',
 	},
-  'ᄄ': {
+	'ᄄ': {
 		base: 'tt',
 	},
-  'ᄅ': {
+	'ᄅ': {
 		base: 'r',
 	},
-  'ᄆ': {
+	'ᄆ': {
 		base: 'm',
 	},
-  'ᄇ': {
+	'ᄇ': {
 		base: 'b',
 	},
-  'ᄈ': {
+	'ᄈ': {
 		base: 'pp',
 	},
-  'ᄉ': {
+	'ᄉ': {
 		base: 's',
 	},
-  'ᄊ': {
+	'ᄊ': {
 		base: 'ss',
 	},
-  'ᄋ': {
-    base: '',
-  },
-  'ᄌ': {
+	'ᄋ': {
+		base: '',
+	},
+	'ᄌ': {
 		base: 'j',
 	},
-  'ᄍ': {
+	'ᄍ': {
 		base: 'jj',
 	},
-  'ᄎ': {
+	'ᄎ': {
 		base: 'ch',
 	},
-  'ᄏ': {
+	'ᄏ': {
 		base: 'k',
 	},
-  'ᄐ': {
+	'ᄐ': {
 		base: 't',
 	},
-  'ᄑ': {
+	'ᄑ': {
 		base: 'p',
 	},
-  'ᄒ': {
+	'ᄒ': {
 		base: 'h',
 	},
-  // https://en.wikipedia.org/wiki/Revised_Romanization_of_Korean#Vowel_letters
-  'ᅡ': {
+	// https://en.wikipedia.org/wiki/Revised_Romanization_of_Korean#Vowel_letters
+	'ᅡ': {
 		base: 'a',
 	},
-  'ᅢ': {
+	'ᅢ': {
 		base: 'ae',
 	},
-  'ᅣ': {
+	'ᅣ': {
 		base: 'ya',
 	},
-  'ᅤ': {
+	'ᅤ': {
 		base: 'yae',
 	},
-  'ᅥ': {
+	'ᅥ': {
 		base: 'eo',
 	},
-  'ᅦ': {
+	'ᅦ': {
 		base: 'e',
 	},
-  'ᅧ': {
+	'ᅧ': {
 		base: 'yeo',
 	},
-  'ᅨ': {
+	'ᅨ': {
 		base: 'ye',
 	},
-  'ᅩ': {
+	'ᅩ': {
 		base: 'o',
 	},
-  'ᅪ': {
+	'ᅪ': {
 		base: 'wa',
 	},
-  'ᅫ': {
+	'ᅫ': {
 		base: 'wae',
 	},
-  'ᅬ': {
+	'ᅬ': {
 		base: 'oe',
 	},
-  'ᅭ': {
+	'ᅭ': {
 		base: 'yo',
 	},
-  'ᅮ': {
+	'ᅮ': {
 		base: 'u',
 	},
-  'ᅯ': {
+	'ᅯ': {
 		base: 'wo',
 	},
-  'ᅰ': {
+	'ᅰ': {
 		base: 'we',
 	},
-  'ᅱ': {
+	'ᅱ': {
 		base: 'wi',
 	},
-  'ᅲ': {
+	'ᅲ': {
 		base: 'yu',
 	},
-  'ᅳ': {
+	'ᅳ': {
 		base: 'eu',
 	},
-  'ᅴ': {
+	'ᅴ': {
 		base: 'ui',
 	},
-  'ᅵ': {
+	'ᅵ': {
 		base: 'i',
 	},
-  // https://en.wikipedia.org/wiki/Revised_Romanization_of_Korean#Consonant_letters
-  '': {
-    base: '',
-  },
-  'ᆨ': {
+	// https://en.wikipedia.org/wiki/Revised_Romanization_of_Korean#Consonant_letters
+	'': {
+		base: '',
+	},
+	'ᆨ': {
 		base: 'k',
-    next: {
-      'ᄋ': 'g',
-      'ㄴ': 'ngn',
-      'ᄅ': 'ngn',
-      'ㅁ': 'ngm',
-      // 'ㅎ': 'kh,k',
-    }
+		next: {
+			'ᄋ': 'g',
+			'ᄂ': 'ngn',
+			'ᄅ': 'ngn',
+			'ᄆ': 'ngm',
+			'ᄒ': 'k', // 'kh,k'
+		}
 	},
-  'ᆩ': {
+	'ᆩ': {
 		base: 'k',
+		next: {
+			'ᄋ': 'kk',
+		}
 	},
-  'ᆪ': {
+	'ᆪ': {
 		base: 'k',
+		next: {
+			'ᄋ': 'ks',
+			'ᄂ': 'ngn',
+			'ᄅ': 'ngn',
+			'ᄆ': 'ngm',
+			'ᄒ': 'k', // 'kh,k'
+		}
 	},
-  'ᆫ': {
+	'ᆫ': {
 		base: 'n',
+		next: {
+			'ᄅ': 'll',
+		}
 	},
-  'ᆬ': {
+	'ᆬ': {
 		base: 'n',
+		next: {
+			'ᄋ': 'nj',
+			'ᄂ': 'nn',
+			'ᄅ': 'nn',
+			'ᄆ': 'nm',
+			'ᄒ': 'ch', // 'th,t,ch'
+		}
 	},
-  'ᆭ': {
+	'ᆭ': {
 		base: 'n',
+		next: {
+			'ᄋ': 'nh',
+			'ᄀ': 'nk',
+			'ᄂ': 'nn',
+			'ᄅ': 'nn',
+			'ᄆ': 'nm',
+			'ᄇ': 'nb',
+			'ᄒ': 'ch', // 'th,t,ch'
+		}
 	},
-  'ᆮ': {
+	'ᆮ': {
 		base: 't',
-    next: {
-      'ᄋ': 'd', // 'd,j' TODO: check
-      'ㄴ': 'nn',
-      'ᄅ': 'nn',
-      'ㅁ': 'nm',
-      // 'ㅎ': 'th,t,ch',
-    }
+		next: {
+			'ᄋ': 'j', // 'd,j'
+			'ᄂ': 'nn',
+			'ᄅ': 'nn',
+			'ᄆ': 'nm',
+			'ᄒ': 'ch', // 'th,t,ch'
+		}
 	},
-  'ᆯ': {
+	'ᆯ': {
 		base: 'l',
-    next: {
-      'ᄋ': 'r',
-    }
+		next: {
+			'ᄋ': 'r',
+		}
 	},
-  'ᆰ': {
+	'ᆰ': {
 		base: 'l',
-    next: {
-      'ᄋ': 'lg',
-    }
+		next: {
+			'ᄋ': 'lg',
+		}
 	},
-  'ᆱ': {
+	'ᆱ': {
 		base: 'l',
-    next: {
-      'ᄋ': 'lm',
-    }
+		next: {
+			'ᄋ': 'lm',
+		}
 	},
-  'ᆲ': {
+	'ᆲ': {
 		base: 'l',
-    next: {
-      'ᄋ': 'lb',
-    }
+		next: {
+			'ᄋ': 'lb',
+		}
 	},
-  'ᆳ': {
+	'ᆳ': {
 		base: 'l',
-    next: {
-      'ᄋ': 'ls',
-    }
+		next: {
+			'ᄋ': 'ls',
+		}
 	},
-  'ᆴ': {
+	'ᆴ': {
 		base: 'l',
-    next: {
-      'ᄋ': 'lt',
-    }
+		next: {
+			'ᄋ': 'lt',
+		}
 	},
-  'ᆵ': {
+	'ᆵ': {
 		base: 'l',
-    next: {
-      'ᄋ': 'lp',
-    }
+		next: {
+			'ᄋ': 'lp',
+		}
 	},
-  'ᆶ': {
+	'ᆶ': {
 		base: 'l',
-    next: {
-      'ᄋ': 'lh',
-    }
+		next: {
+			'ᄋ': 'lh',
+		}
 	},
-  'ᆷ': {
+	'ᆷ': {
 		base: 'm',
 	},
-  'ᆸ': {
+	'ᆸ': {
 		base: 'p',
+		next: {
+			'ᄋ': 'b',
+			'ᄂ': 'mn',
+			'ᄅ': 'mn',
+			'ᄆ': 'mm',
+			'ᄒ': 'p', // 'ph,p'
+		}
 	},
-  'ᆹ': {
+	'ᆹ': {
 		base: 'p',
-    next: {
-      'ᄋ': 'ps',
-    }
+		next: {
+			'ᄋ': 'ps',
+		}
 	},
-  'ᆺ': {
+	'ᆺ': {
 		base: 't',
+		next: {
+			'ᄋ': 's',
+			'ᄂ': 'nn',
+			'ᄅ': 'nn',
+			'ᄆ': 'nm',
+		}
 	},
-  'ᆻ': {
+	'ᆻ': {
 		base: 't',
+		next: {
+			'ᄋ': 'ss',
+		}
 	},
-  'ᆼ': {
+	'ᆼ': {
 		base: 'ng',
 	},
-  'ᆽ': {
+	'ᆽ': {
 		base: 't',
+		next: {
+			'ᄋ': 'j',
+			'ᄂ': 'nn',
+			'ᄅ': 'nn',
+			'ᄆ': 'nm',
+			'ᄒ': 'ch', // 'th,t,ch'
+		}
 	},
-  'ᆾ': {
+	'ᆾ': {
 		base: 't',
+		next: {
+			'ᄋ': 'ch',
+			'ᄂ': 'nn',
+			'ᄅ': 'nn',
+			'ᄆ': 'nm',
+			'ᄒ': 'ch', // 'th,t,ch'
+		}
 	},
-  'ᆿ': {
+	'ᆿ': {
 		base: 'k',
 	},
-  'ᇀ': {
+	'ᇀ': {
 		base: 't',
+		next: {
+			'ᄂ': 'nn',
+			'ᄅ': 'nn',
+			'ᄆ': 'nm',
+			'ᄒ': 'ch', // 'th,t,ch'
+		}
 	},
-  'ᇁ': {
+	'ᇁ': {
 		base: 'p',
 	},
-  'ᇂ': {
+	'ᇂ': {
 		base: 't',
-    next: {
-      'ᄋ': 'h',
-      'ᄀ': 'k',
-      'ᄂ': 'nn',
-      'ᄃ': 'nn',
-      'ᄅ': 'nn',
-      'ᄆ': 'nm',
-      'ᄇ': 'p',
-      'ᄉ': 'hs',
-      'ᄌ': 'ch',
-      'ᄐ': 'th',
-    }
+		next: {
+			'ᄋ': 'h',
+			'ᄀ': 'k',
+			'ᄁ': 'kk',
+			'ᄂ': 'nn',
+			'ᄃ': 't',
+			'ᄄ': 'tt',
+			'ᄅ': 'nn',
+			'ᄆ': 'nm',
+			'ᄇ': 'p',
+			'ᄈ': 'pp',
+			'ᄉ': 's',
+			'ᄊ': 'ss',
+			'ᄌ': 'ch',
+			'ᄍ': 'jj',
+			'ᄐ': 't',
+			'ᄒ': 'h',
+		}
 	},
 }
 
