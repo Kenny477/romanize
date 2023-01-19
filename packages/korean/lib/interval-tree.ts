@@ -1,10 +1,10 @@
-export class IntervalTree {
-  root: IntervalTreeNode | null;
-  constructor(start?: number, end?: number, value?: string) {
+export class IntervalTree<T extends string> {
+  root: IntervalTreeNode<T> | null;
+  constructor(start?: number, end?: number, value?: T) {
     this.root = start && end && value ? new IntervalTreeNode(start, end, value) : null;
   }
   
-  insert(start: number, end: number, value: string): IntervalTreeNode {
+  insert(start: number, end: number, value: T): IntervalTreeNode<T> {
     const node = new IntervalTreeNode(start, end, value);
     if (this.root === null) {
       this.root = node;
@@ -14,7 +14,7 @@ export class IntervalTree {
     return node;
   }
   
-  search(num: number): IntervalTreeNode[] {
+  search(num: number): IntervalTreeNode<T>[] {
     if (this.root === null) {
       return [];
     }
@@ -26,13 +26,13 @@ export class IntervalTree {
   }
 }
 
-export class IntervalTreeNode {
+export class IntervalTreeNode<T extends String> {
   start: number;
   end: number;
-  value: string;
-  left: IntervalTreeNode | null;
-  right: IntervalTreeNode | null;
-  constructor(start: number, end: number, value: string) {
+  value: T;
+  left: IntervalTreeNode<T> | null;
+  right: IntervalTreeNode<T> | null;
+  constructor(start: number, end: number, value: T) {
     this.start = start;
     this.end = end;
     this.value = value;
@@ -40,7 +40,7 @@ export class IntervalTreeNode {
     this.right = null;
   }
 
-  insert(node: IntervalTreeNode) {
+  insert(node: IntervalTreeNode<T>) {
     if (node.start < this.start) {
       if (this.left === null) {
         this.left = node;
@@ -56,7 +56,7 @@ export class IntervalTreeNode {
     }
   }
 
-  search(num: number): IntervalTreeNode[] {
+  search(num: number): IntervalTreeNode<T>[] {
     const result = [];
     if (this.left !== null) {
       result.push(...this.left.search(num));

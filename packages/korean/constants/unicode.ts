@@ -1,5 +1,5 @@
 // https://en.wikipedia.org/wiki/Hangul
-export const HANGUL_BLOCKS = {
+export const HANGUL_BLOCKS: Record<HangulBlock, { start: number, end: number }> = {
   // https://en.wikipedia.org/wiki/Hangul_Jamo
   // https://unicode.org/charts/PDF/U1100.pdf
   HANGUL_JAMO: {
@@ -43,3 +43,5 @@ export const HANGUL_BLOCKS = {
     end: 0x007f,
   },
 }
+
+type HangulBlock = "HANGUL_JAMO" | "HANGUL_COMPATIBILITY_JAMO" | "HANGUL_JAMO_EXTENDED_A" | "HANGUL_JAMO_EXTENDED_B" | "HANGUL_SYLLABLES" | "CJK_SYMBOLS_AND_PUNCTUATION" | "BASIC_LATIN";
