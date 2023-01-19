@@ -1,5 +1,4 @@
-import { REVISED_ROMANIZATION_OF_KOREAN } from "../constants/systems/revised";
-import { HangulJamo, HangulInitials, HangulMedials, HangulFinals } from "../types/hangul";
+import { HangulInitials, HangulMedials, HangulFinals } from "../types/hangul";
 
 export class HangulSyllable {
   static SBase = 0xAC00;
@@ -17,10 +16,10 @@ export class HangulSyllable {
   public jungseong: keyof HangulMedials;
   public jongseong: keyof HangulFinals;
   constructor(syllable: string) {
-    if(syllable.length !== 1 || syllable.charCodeAt(0) < 0xAC00 || syllable.charCodeAt(0) > 0xD7A3)
+    if (syllable.length !== 1 || syllable.charCodeAt(0) < 0xAC00 || syllable.charCodeAt(0) > 0xD7A3)
       throw new Error(`Invalid Hangul Syllable "${syllable}"`);
     this.syllable = syllable;
-    const {choseong, jungseong, jongseong} = this.map();
+    const { choseong, jungseong, jongseong } = this.map();
     this.choseong = choseong;
     this.jungseong = jungseong;
     this.jongseong = jongseong;
@@ -39,9 +38,9 @@ export class HangulSyllable {
     const LPart = String.fromCharCode(HangulSyllable.LBase + LIndex) as keyof HangulInitials;
     const VPart = String.fromCharCode(HangulSyllable.VBase + VIndex) as keyof HangulMedials;
     const TPart = TIndex === 0 ? '' : String.fromCharCode(HangulSyllable.TBase + TIndex) as keyof HangulFinals;
-    return {choseong: LPart, jungseong: VPart, jongseong: TPart};
+    return { choseong: LPart, jungseong: VPart, jongseong: TPart };
   }
-  
+
   public get initial() {
     return this.choseong
   }
