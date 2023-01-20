@@ -10,7 +10,7 @@ interface RomanizeRequest {
 /*
   Type: POST
   Path: /korean
-  RequestBody: { "text": "한글", "system": "REVISED" }
+  RequestBody: { "text": "한글", "system": "RV" }
   ResponseBody: { "romanized": "hangul" }
 */
 korean.post('/', (ctx, next) => {
@@ -18,6 +18,6 @@ korean.post('/', (ctx, next) => {
   if (!text) {
     ctx.throw(400, 'Missing text');
   }
-  const romanized = romanize(text, system);
+  const romanized = romanize(text, { system });
   ctx.body = { romanized };
 });

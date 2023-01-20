@@ -1,6 +1,6 @@
 {
   "name": "@romanize/korean",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Romanize Korean hangul",
   "main": "dist/index.js",
   "files": [

@@ -1,7 +1,7 @@
-import { REVISED_ROMANIZATION_OF_KOREAN } from "./constants/systems/revised";
+import { MCCUNE_REISCHAUER, REVISED_ROMANIZATION_OF_KOREAN } from "./constants/systems";
 import { HangulSyllable } from "./lib/decompose-hangul";
 import HangulTree from "./lib/is-hangul";
-import { HangulInitials, HangulJamo } from "./types/hangul";
+import { HangulJamo } from "./types/hangul";
 
 const tree = new HangulTree();
 
@@ -55,17 +55,26 @@ function convert(chars: string[], system: HangulJamo) {
 }
 
 export enum RomanizationSystem {
-  REVISED = "REVISED",
-  MCCUNE = "MCCUNE",
+  REVISED = "RV",
+  MCCUNE = "MR",
+  // YALE = "YL",
 }
 
-export function romanize(hangul: string, system: RomanizationSystem = RomanizationSystem.REVISED): string {
+export interface RomanizationOptions {
+  system: RomanizationSystem;
+}
+
+const defaultRomanizationOptions: RomanizationOptions = {
+  system: RomanizationSystem.REVISED,
+};
+
+export function romanize(hangul: string, romanizationOptions: RomanizationOptions): string {
   const chars = separate(hangul);
-  switch (system) {
+  switch (romanizationOptions.system) {
     default:
     case RomanizationSystem.REVISED:
       return convert(chars, REVISED_ROMANIZATION_OF_KOREAN);
     case RomanizationSystem.MCCUNE:
-      return convert(chars, REVISED_ROMANIZATION_OF_KOREAN);
+      return convert(chars, MCCUNE_REISCHAUER);
   }
 }

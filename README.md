@@ -1,22 +1,38 @@
 # Romanize
 
+[![Coverage Status](https://coveralls.io/repos/github/Kenny477/romanize/badge.svg?branch=main)](https://coveralls.io/github/Kenny477/romanize?branch=main)
+
 A collection of packages to romanize text in various languages.
 
 ## Current Languages
 
 | Language | Package                               | Version | Status         |
 | -------- | ------------------------------------- | ------- | -------------- |
-| korean   | [@romanize/korean](/packages/korean/) | v0.0.1  | In development |
+| Korean   | [@romanize/korean](/packages/korean/) | v0.0.1  | In development |
+| Japanese | [@romanize/japanese]()                | n/a     | Planned        |
 
-## Other Packages
+## Implementations
 
-| App  | Package                           | Version | Status         |
-| ---- | --------------------------------- | ------- | -------------- |
-| REST API | [@romanize/rest](/packages/rest/) | v0.0.1  | In development |
-| CLI  | [@romanize/cli]()                 | n/a     | Planned        |
+| App      | Package                             | Version | Status         |
+| -------- | ----------------------------------- | ------- | -------------- |
+| REST API | [@romanize/rest](/packages/rest/)   | v0.0.1  | In development |
+| React    | [@romanize/react](/packages/react/) | n/a     | Planned        |
+| CLI      | [@romanize/cli]()                   | n/a     | Planned        |
 
 ## Issues
 
 Please report any issues with romanization or bugs in the packages to the [issue tracker](https://github.com/Kenny477/romanize/issues).
 
-Specifically for romanization errors, please list the text in original language, the romanization you expected, and the romanization you received. Any other information/references on why the romanization is incorrect is appreciated.
+Specifically for romanization errors, please list the text in original language, the romanization you expected, and the romanization you received. Any other information/references on why the romanization is incorrect is appreciated. A markdown template is provided below for your convenience.
+
+```markdown
+## Original Text
+
+## Expected Romanization
+
+## Actual Romanization
+
+## Reason
+
+## References
+```
