@@ -10,7 +10,8 @@
   "scripts": {
     "build": "npm run clean && tsc --outDir dist",
     "clean": "rimraf dist",
-    "test": "jest --coverage",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "publish": "npm run build && npm publish dist --access public"
   },
   "author": "Kenneth Tang",
