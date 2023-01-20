@@ -39,7 +39,7 @@ function convert(chars: string[], system: HangulJamo) {
         const nextC = chars[i + 1] as keyof HangulJamo;
         // @ts-expect-error
         if (nextC in system[c].next) {
-          const nextInitial = nextC as keyof HangulInitials;
+          const nextInitial = nextC as keyof HangulJamo;
           // @ts-expect-error
           res += system[c].next[nextInitial];
           i++;

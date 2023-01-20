@@ -79,7 +79,7 @@ export interface HangulFinals {
 
 interface HangulChar {
   base: string;
-  next?: Partial<Record<keyof HangulInitials, string>>;
+  next?: Partial<Record<keyof HangulJamo, string>>;
 }
 
 export type HangulJamo = HangulInitials & HangulMedials & HangulFinals;

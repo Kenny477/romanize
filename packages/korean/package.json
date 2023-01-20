@@ -1,5 +1,5 @@
 {
-  "name": "korean",
+  "name": "@romanize/korean",
   "version": "0.0.0",
   "description": "Romanize Korean hangul",
   "main": "dist/index.js",
@@ -10,7 +10,8 @@
   "scripts": {
     "build": "npm run clean && tsc --outDir dist",
     "clean": "rimraf dist",
-    "test": "jest"
+    "test": "jest --coverage",
+    "publish": "npm run build && npm publish dist --access public"
   },
   "author": "Kenneth Tang",
   "license": "MIT"

@@ -1,5 +1,5 @@
 {
-  "name": "rest",
+  "name": "@romanize/rest",
   "version": "0.0.0",
   "description": "REST API for romanizations",
   "main": "index.js",
