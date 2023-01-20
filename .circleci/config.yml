@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@5.1
-  coveralls: coveralls/coveralls@1.0.6
+  coveralls: kaze/coveralls@1.0.1
 
 jobs:
   cov-korean:
@@ -19,6 +19,8 @@ jobs:
           parallel: true
           path_to_lcov: ./packages/korean/coverage/lcov.info
           flag_name: Korean
+          verbose: true
+          filepath: ./packages/korean/
   cov-done:
     docker:
       - image: cimg/node:16.10
