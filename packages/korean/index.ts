@@ -54,7 +54,7 @@ function convert(chars: string[], system: HangulJamo) {
   return res;
 }
 
-enum RomanizationSystem {
+export enum RomanizationSystem {
   REVISED = "REVISED",
   MCCUNE = "MCCUNE",
 }
