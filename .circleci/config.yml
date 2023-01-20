@@ -27,11 +27,29 @@ jobs:
     steps:
       - coveralls/upload:
           parallel_finished: true
+  deploy-korean:
+    docker:
+      - image: cimg/node:16.10
+    steps:
+      - checkout
+      - run:
+          name: Build 
+          command: npx nx run @romanize/korean:build
+      - run:
+          name: Deploy to NPM
+          command: npx nx run @romanize/korean:publish
 
 workflows:
   cov-gen:
     jobs:
       - cov-korean
       - cov-done:
-          requires: 
+          requires:
             - cov-korean
+  npm-korean:
+    jobs:
+      - deploy-korean:
+          filters:
+            branches:
+              only:
+                - main
