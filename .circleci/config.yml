@@ -35,9 +35,6 @@ jobs:
       - node/install-packages:
           pkg-manager: npm
       - run:
-          name: Build 
-          command: npx nx run @romanize/korean:build
-      - run:
           name: Deploy to NPM
           command: npx nx run @romanize/korean:publish
 
