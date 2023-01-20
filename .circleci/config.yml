@@ -32,6 +32,8 @@ jobs:
       - image: cimg/node:16.10
     steps:
       - checkout
+      - node/install-packages:
+          pkg-manager: npm
       - run:
           name: Build 
           command: npx nx run @romanize/korean:build
