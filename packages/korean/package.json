@@ -11,7 +11,7 @@
     "build": "npm run clean && tsc --outDir dist",
     "clean": "rimraf dist",
     "test": "jest",
-    "coverage": "jest --coverage",
+    "coverage": "jest --coverage --ci",
     "publish": "npm run build && npm publish dist --access public"
   },
   "author": "Kenneth Tang",

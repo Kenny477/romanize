@@ -1,4 +1,4 @@
-import { romanize } from "..";
+import { romanize } from "../index";
 
 test('romanizeHangul1', () => {
   expect(romanize('훌')).toEqual('hul');

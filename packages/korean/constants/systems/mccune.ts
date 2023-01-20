@@ -131,6 +131,9 @@ export const MCCUNE_REISCHAUER: HangulJamo = {
     base: 'i',
   },
   // https://en.wikipedia.org/wiki/McCune%E2%80%93Reischauer#Consonants
+  '': {
+    base: '',
+  },
   'ᆨ': {
     base: 'k',
   },
@@ -138,10 +141,16 @@ export const MCCUNE_REISCHAUER: HangulJamo = {
     base: 'k',
   },
   'ᆪ': {
-    base: 'kt',
+    base: 'kt', // CHECK
   },
   'ᆫ': {
     base: 'n',
+  },
+  'ᆬ': {
+		base: 'n', // CHECK
+  },
+  'ᆭ': {
+		base: 'n', // CHECK
   },
   'ᆮ': {
     base: 't',
@@ -149,14 +158,74 @@ export const MCCUNE_REISCHAUER: HangulJamo = {
   'ᆯ': {
     base: 'l',
   },
+  'ᆰ': {
+		base: 'l',
+		next: {
+			'ᄋ': 'lg',
+		}
+	},
+	'ᆱ': {
+		base: 'l',
+		next: {
+			'ᄋ': 'lm',
+		}
+	},
+	'ᆲ': {
+		base: 'l',
+		next: {
+			'ᄋ': 'lb', // CHECK
+		}
+	},
+	'ᆳ': {
+		base: 'l',
+		next: {
+			'ᄋ': 'ls', // CHECK
+		}
+	},
+	'ᆴ': {
+		base: 'l',
+		next: {
+			'ᄋ': 'lt', // CHECK
+		}
+	},
+  'ᆵ': {
+		base: 'l',
+		next: {
+			'ᄋ': 'lp', // CHECK
+		}
+	},
+	'ᆶ': {
+		base: 'l',
+		next: {
+			'ᄋ': 'lh', // CHECK
+		}
+	},
   'ᆷ': {
     base: 'm',
   },
   'ᆸ': {
     base: 'p',
+    next: {
+      'ᄋ': 'b',
+    }
   },
+  'ᆹ': {
+		base: 'p',
+		next: {
+			'ᄋ': 'bs',
+		}
+	},
   'ᆺ': {
     base: 't',
+    next: {
+      'ᄋ': 'ss',
+    }
+  },
+  'ᆻ': {
+    base: 't',
+    next: {
+      'ᄋ': 'ss',
+    }
   },
   'ᆼ': {
     base: 'ng',

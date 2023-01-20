@@ -68,7 +68,7 @@ const defaultRomanizationOptions: RomanizationOptions = {
   system: RomanizationSystem.REVISED,
 };
 
-export function romanize(hangul: string, romanizationOptions: RomanizationOptions): string {
+export function romanize(hangul: string, romanizationOptions: RomanizationOptions = defaultRomanizationOptions): string {
   const chars = separate(hangul);
   switch (romanizationOptions.system) {
     default:
