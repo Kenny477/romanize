@@ -36,7 +36,7 @@ jobs:
           pkg-manager: npm
       - run:
           name: Deploy to NPM
-          command: npx nx run @romanize/korean:publish
+          command: npx nx run @romanize/korean:deploy
 
 workflows:
   cov-gen:
