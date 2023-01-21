@@ -4,47 +4,47 @@ import { HangulJamo } from '../../types/hangul'
 export const MCCUNE_REISCHAUER: HangulJamo = {
   // https://en.wikipedia.org/wiki/McCune%E2%80%93Reischauer#Consonants
   'ᄀ': {
-		base: 'k',
-	},
+    base: 'k',
+  },
   'ᄁ': {
-		base: 'kk',
-	},
+    base: 'kk',
+  },
   'ᄂ': {
-		base: 'n',
-	},
+    base: 'n',
+  },
   'ᄃ': {
-		base: 't',
-	},
+    base: 't',
+  },
   'ᄄ': {
-		base: 'tt',
-	},
+    base: 'tt',
+  },
   'ᄅ': {
-		base: 'r',
-	},
+    base: 'r',
+  },
   'ᄆ': {
-		base: 'm',
-	},
+    base: 'm',
+  },
   'ᄇ': {
-		base: 'p',
-	},
+    base: 'p',
+  },
   'ᄈ': {
-		base: 'pp',
-	},
+    base: 'pp',
+  },
   'ᄉ': {
-		base: 's',
-	},
+    base: 's',
+  },
   'ᄊ': {
-		base: 'ss',
-	},
+    base: 'ss',
+  },
   'ᄋ': {
     base: '',
   },
   'ᄌ': {
-		base: 'c',
-	},
+    base: 'c',
+  },
   'ᄍ': {
-		base: 'tch',
-	},
+    base: 'tch',
+  },
   'ᄎ': {
     base: 'ch\'',
   },
@@ -58,30 +58,30 @@ export const MCCUNE_REISCHAUER: HangulJamo = {
     base: 'p\'',
   },
   'ᄒ': {
-		base: 'h',
-	},
+    base: 'h',
+  },
   // https://en.wikipedia.org/wiki/McCune%E2%80%93Reischauer#Vowels
   'ᅡ': {
-		base: 'a',
+    base: 'a',
     next: {
-      'ᅦ': 'aë'
+      'ᅦ': 'aë' // Will never happen
     }
-	},
+  },
   'ᅢ': {
-		base: 'ae',
-	},
+    base: 'ae',
+  },
   'ᅣ': {
-		base: 'ya',
-	},
+    base: 'ya',
+  },
   'ᅤ': {
-		base: 'yae',
-	},
+    base: 'yae',
+  },
   'ᅥ': {
     base: 'ŏ',
   },
   'ᅦ': {
-		base: 'e',
-	},
+    base: 'e',
+  },
   'ᅧ': {
     base: 'yŏ',
   },
@@ -91,7 +91,7 @@ export const MCCUNE_REISCHAUER: HangulJamo = {
   'ᅩ': {
     base: 'o',
     next: {
-      'ᅦ': 'oë'
+      'ᅦ': 'oë' // Will never happen
     }
   },
   'ᅪ': {
@@ -136,85 +136,136 @@ export const MCCUNE_REISCHAUER: HangulJamo = {
   },
   'ᆨ': {
     base: 'k',
+    next: {
+      'ᄋ': 'g',
+      'ᄂ': 'ngn',
+      'ᄅ': 'ngn',
+      'ᄆ': 'ngm',
+    }
   },
   'ᆩ': {
     base: 'k',
+    next: {
+      'ᄋ': 'kk',
+    }
   },
   'ᆪ': {
-    base: 'kt', // CHECK
+    base: 'k',
+    next: {
+      'ᄋ': 'ks',
+    }
   },
   'ᆫ': {
     base: 'n',
+    'next': {
+      'ᄀ': 'n\'g',
+      'ᄃ': 'nd',
+      'ᄅ': 'nn',
+      'ᄇ': 'nb',
+      'ᄌ': 'nj',
+    }
   },
   'ᆬ': {
-		base: 'n', // CHECK
+    base: 'n',
+    next: {
+      'ᄋ': 'nj',
+    }
   },
   'ᆭ': {
-		base: 'n', // CHECK
+    base: 'n',
+    next: {
+      'ᄋ': 'nh',
+    }
   },
   'ᆮ': {
     base: 't',
+    next: {
+      'ᄋ': 'd',
+      'ᄂ': 'nn',
+      'ᄅ': 'nn',
+      'ᄆ': 'nm',
+      'ᄉ': 'ss',
+    }
   },
   'ᆯ': {
     base: 'l',
+    next: {
+      'ᄋ': 'r',
+      'ᄀ': 'lg',
+      'ᄂ': 'll',
+      'ᄃ': 'ld',
+      'ᄅ': 'll',
+      'ᄇ': 'lb',
+      'ᄌ': 'lj',
+    }
   },
   'ᆰ': {
-		base: 'l',
-		next: {
-			'ᄋ': 'lg',
-		}
-	},
-	'ᆱ': {
-		base: 'l',
-		next: {
-			'ᄋ': 'lm',
-		}
-	},
-	'ᆲ': {
-		base: 'l',
-		next: {
-			'ᄋ': 'lb', // CHECK
-		}
-	},
-	'ᆳ': {
-		base: 'l',
-		next: {
-			'ᄋ': 'ls', // CHECK
-		}
-	},
-	'ᆴ': {
-		base: 'l',
-		next: {
-			'ᄋ': 'lt', // CHECK
-		}
-	},
+    base: 'k',
+    next: {
+      'ᄋ': 'lg',
+    }
+  },
+  'ᆱ': {
+    base: 'm',
+    next: {
+      'ᄋ': 'lm',
+    }
+  },
+  'ᆲ': {
+    base: 'l',
+    next: {
+      'ᄋ': 'lb',
+    }
+  },
+  'ᆳ': {
+    base: 'l',
+    next: {
+      'ᄋ': 'ls',
+    }
+  },
+  'ᆴ': {
+    base: 'l',
+    next: {
+      'ᄋ': 't\'',
+    }
+  },
   'ᆵ': {
-		base: 'l',
-		next: {
-			'ᄋ': 'lp', // CHECK
-		}
-	},
-	'ᆶ': {
-		base: 'l',
-		next: {
-			'ᄋ': 'lh', // CHECK
-		}
-	},
+    base: 'p',
+    next: {
+      'ᄋ': 'lp\'',
+    }
+  },
+  'ᆶ': {
+    base: 'l',
+    next: {
+      'ᄋ': 'r',
+    }
+  },
   'ᆷ': {
     base: 'm',
+    next: {
+      'ᄀ': 'mg',
+      'ᄃ': 'md',
+      'ᄅ': 'mn',
+      'ᄇ': 'mb',
+      'ᄌ': 'mj',
+    }
   },
   'ᆸ': {
     base: 'p',
     next: {
       'ᄋ': 'b',
+      'ᄂ': 'mn',
+      'ᄅ': 'mn',
+      'ᄆ': 'mm',
     }
   },
   'ᆹ': {
-		base: 'p',
-		next: {
-			'ᄋ': 'bs',
-		}
-	},
+    base: 'p',
+    next: {
+      'ᄋ': 'bs',
+    }
+  },
   'ᆺ': {
     base: 't',
     next: {
@@ -229,6 +280,13 @@ export const MCCUNE_REISCHAUER: HangulJamo = {
   },
   'ᆼ': {
     base: 'ng',
+    next: {
+      'ᄀ': 'ngg',
+      'ᄃ': 'ngd',
+      'ᄅ': 'ngn',
+      'ᄇ': 'ngb',
+      'ᄌ': 'ngj',
+    }
   },
   'ᆽ': {
     base: 't',
