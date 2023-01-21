@@ -1,7 +1,6 @@
 {
   "name": "react",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +9,7 @@
   },
   "dependencies": {
     "@react-spring/web": "^9.6.1",
-    "@romanize/korean": "^0.0.1",
+    "@romanize/korean": "^0.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
