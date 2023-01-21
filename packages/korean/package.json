@@ -1,7 +1,7 @@
 {
   "name": "@romanize/korean",
-  "version": "0.1.0",
-  "description": "Romanize Korean hangul",
+  "version": "0.0.1",
+  "description": "Romanize Korean Hangul",
   "main": "dist/index.js",
   "files": [
     "dist/",
@@ -12,8 +12,19 @@
     "clean": "rimraf dist",
     "test": "jest",
     "coverage": "jest --coverage --ci",
-    "publish": "npm run build && npm publish --access public"
+    "deploy": "npm run build && npm publish --access public"
   },
   "author": "Kenneth Tang",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kenny477/romanize"
+  },
+  "keywords": [
+    "korean",
+    "romanize",
+    "hangul",
+    "romanization",
+    "revised romanization"
+  ]
 }
