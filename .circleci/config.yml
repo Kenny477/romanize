@@ -41,10 +41,18 @@ jobs:
 workflows:
   cov-gen:
     jobs:
-      - cov-korean
+      - cov-korean:
+          filters:
+            branches:
+              only:
+                - main
       - cov-done:
           requires:
             - cov-korean
+          filters:
+            branches:
+              only:
+                - main
   npm-korean:
     jobs:
       - deploy-korean:
