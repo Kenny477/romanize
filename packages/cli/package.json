@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "CLI for romanize utilities",
   "main": "dist/index.js",
+  "bin": {
+    "romanize": "dist/index.js"
+  },
   "files": [
     "dist/",
     "package.json"
@@ -32,5 +35,8 @@
   "dependencies": {
     "@romanize/korean": "^0.1.1",
     "yargs": "^17.6.2"
+  },
+  "devDependencies": {
+    "@types/yargs": "^17.0.22"
   }
 }
