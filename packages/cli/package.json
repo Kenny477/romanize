@@ -1,0 +1,36 @@
+{
+  "name": "@romanize/cli",
+  "version": "0.1.0",
+  "description": "CLI for romanize utilities",
+  "main": "dist/index.js",
+  "files": [
+    "dist/",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "npm run clean && tsc --outDir dist",
+    "clean": "rimraf dist",
+    "test": "jest",
+    "coverage": "jest --coverage --ci",
+    "deploy": "npm run build && npm publish --access public"
+  },
+  "author": "Kenneth Tang",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kenny477/romanize"
+  },
+  "keywords": [
+    "korean",
+    "romanize",
+    "hangul",
+    "romanization",
+    "revised romanization",
+    "command line",
+    "CLI"
+  ],
+  "dependencies": {
+    "@romanize/korean": "^0.1.1",
+    "yargs": "^17.6.2"
+  }
+}
