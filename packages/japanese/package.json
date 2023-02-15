@@ -1,0 +1,27 @@
+{
+  "name": "@romanize/japanese",
+  "version": "0.1.0",
+  "description": "Romanize Japanese Hiragana, Katakana, and Kanji",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kenny477/romanize.git"
+  },
+  "keywords": [
+    "japanese",
+    "hiragana",
+    "katakana",
+    "kanji",
+    "romanization",
+    "hepburn"
+  ],
+  "author": "Kenneth Tang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kenny477/romanize/issues"
+  },
+  "homepage": "https://github.com/Kenny477/romanize#readme"
+}
