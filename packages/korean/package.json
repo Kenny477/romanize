@@ -1,14 +1,15 @@
 {
   "name": "@romanize/korean",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Romanize Korean Hangul",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/",
     "package.json"
   ],
   "scripts": {
-    "build": "npm run clean && tsc --outDir dist",
+    "build": "npm run clean && tsc",
     "clean": "rimraf dist",
     "test": "jest",
     "coverage": "jest --coverage --ci",
