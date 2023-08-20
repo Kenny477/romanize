@@ -9,11 +9,13 @@
     "package.json"
   ],
   "scripts": {
-    "build": "npm run clean && tsc",
+    "prebuild": "npm run clean && tsc --noEmit",
+    "build": "esbuild index.ts --bundle --minify --sourcemap --outdir=dist",
     "clean": "rimraf dist",
     "test": "jest",
     "coverage": "jest --coverage --ci",
-    "deploy": "npm run build && npm publish --access public"
+    "predeploy": "npm run build",
+    "deploy": "npm publish --access public"
   },
   "author": "Kenneth Tang",
   "license": "MIT",

@@ -1,4 +1,4 @@
-import { MCCUNE_REISCHAUER, REVISED_ROMANIZATION_OF_KOREAN, YALE } from "./constants/systems/index";
+import { MCCUNE_REISCHAUER, REVISED_ROMANIZATION_OF_KOREAN, YALE } from "./constants/systems";
 import { HangulSyllable } from "./lib/decompose-hangul";
 import HangulTree from "./lib/is-hangul";
 import { HangulJamo } from "./types/hangul";
