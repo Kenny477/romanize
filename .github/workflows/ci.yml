@@ -1,0 +1,48 @@
+on:
+  pull_request:
+    branches:
+      - main
+      - stage
+  push:
+    branches:
+      - main
+      - stage
+
+name: Test Coveralls
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project:
+          - korean
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+    - name: npm install
+      run: npm install
+    - name: Test ${{ matrix.project }}
+      run: npx nx run @romanize/${{ matrix.project }}:coverage
+    - name: Coveralls
+      uses: coverallsapp/github-action@v2
+      with:
+        base-path: packages/${{ matrix.project }}
+        parallel: true
+        flag-name: ${{ matrix.project }}
+  
+  finish:
+    needs: test
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Coveralls finished
+      uses: coverallsapp/github-action@v2
+      with:
+        parallel-finished: true
+  
+
+  

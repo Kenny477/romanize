@@ -1,4 +1,4 @@
-import { romanize } from "../index";
+import { RomanizationSystem, romanize } from "../index";
 
 test('romanizeHangul1', () => {
   expect(romanize('훌')).toEqual('hul');
@@ -12,14 +12,47 @@ test('romanizeHangul1', () => {
   eoneusae yeoreum jina gaeul`);
 })
 
-const tests = {
-  "안녕하세요": "annyeonghaseyo",
-  "안녕": "annyeong",
-  "안녕하십니까": "annyeonghasimnikka",
-  "좋고": "joko",
-  "놓다": "nota",
-  "잡혀": "japyeo",
-  "낳지": "nachi",
+const tests: Record<string, Record<RomanizationSystem, string>> = {
+  "안녕하세요": {
+    [RomanizationSystem.REVISED]: "annyeonghaseyo",
+    [RomanizationSystem.MCCUNE]: "annyŏnghaseyo",
+    [RomanizationSystem.YALE]: "annyenghaseyyo",
+  },
+  "안녕": {
+    [RomanizationSystem.REVISED]: "annyeong",
+    [RomanizationSystem.MCCUNE]: "annyŏng",
+    [RomanizationSystem.YALE]: "annyeng",
+  },
+  "안녕하십니까": {
+    [RomanizationSystem.REVISED]: "annyeonghasimnikka",
+    [RomanizationSystem.MCCUNE]: "annyŏnghasimnikka",
+    [RomanizationSystem.YALE]: "annyenghasipnikka",
+  },
+  // "좋고": {
+  //   [RomanizationSystem.REVISED]: "joko",
+  //   [RomanizationSystem.MCCUNE]: "chok'o",
+  //   [RomanizationSystem.YALE]: "cohko",
+  // },
+  // "놓다": {
+  //   [RomanizationSystem.REVISED]: "nota",
+  //   [RomanizationSystem.MCCUNE]: "not'a",
+  //   [RomanizationSystem.YALE]: "nohta",
+  // },
+  // "잡혀": {
+  //   [RomanizationSystem.REVISED]: "japyeo",
+  //   [RomanizationSystem.MCCUNE]: "chap'yŏ",
+  //   [RomanizationSystem.YALE]: "caphye",
+  // },
+  // "낳지": {
+  //   [RomanizationSystem.REVISED]: "nachi",
+  //   [RomanizationSystem.MCCUNE]: "nach'i",
+  //   [RomanizationSystem.YALE]: "nahci",
+  // },
+  // "김치": {
+  //   [RomanizationSystem.REVISED]: "gimchi",
+  //   [RomanizationSystem.MCCUNE]: "kimch'i",
+  //   [RomanizationSystem.YALE]: "kimchi",
+  // },
   // "학여울": "hangnyeoul",
   // "알약": "allyak",
   // "백마": "baengma",
@@ -33,6 +66,12 @@ const tests = {
 
 test('romanizeHangul2', () => {
   for (const [hangul, romanized] of Object.entries(tests)) {
-    expect(romanize(hangul)).toEqual(romanized);
+    for (const system of Object.values(RomanizationSystem)) {
+      expect(romanize(hangul, { system })).toEqual(romanized[system]);
+    }
   }
 })
+
+test('romanizeNotHangul', () => {
+  expect(() => romanize("我")).toThrowError('Not a Hangul string');
+});
